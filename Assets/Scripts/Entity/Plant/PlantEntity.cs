@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlantEntity : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform[] _growthPoints;
+    [SerializeField] private FruitEntity _fruitEntityPrefab;
+    public Transform deliveryPoint;
+    public List<FruitEntity> fruitEntities;
+
+    public List<FruitEntity> SpawnFruit(int count)
     {
-        
+        fruitEntities = new List<FruitEntity>();
+        for (int i = 0; i < Mathf.Min(count, _growthPoints.Length); i++)
+        {
+            var fruitObj = ObjectPoolManager.Spawn(_fruitEntityPrefab.gameObject);
+            fruitObj.transform.position = _growthPoints[i].position;
+            var fruitEntity = fruitObj.GetComponent<FruitEntity>();
+            fruitEntities.Add(fruitEntity);
+        }
+
+        return fruitEntities;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -15,4 +15,19 @@ MonoBehaviour:
   id: 3
   plantName: Construction 3
   icon: {fileID: 21300000, guid: 40ac2c9f66ad60340ae5ae80eeff9656, type: 3}
-  levels: []
+  levels:
+  - income: 6000
+    harvestTime: 20
+    upgradeCost: 10000
+  - income: 20000
+    harvestTime: 20
+    upgradeCost: 100000
+  - income: 60000
+    harvestTime: 20
+    upgradeCost: 1000000
+  - income: 150000
+    harvestTime: 20
+    upgradeCost: 10000000
+  - income: 300000
+    harvestTime: 20
+    upgradeCost: 100000000

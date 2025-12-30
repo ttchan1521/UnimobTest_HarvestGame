@@ -494,6 +494,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f3b9db30a75fd49b6d29402b83c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _growthPoints:
+  - {fileID: 1302891246214687470}
+  - {fileID: 1302891244408951080}
+  - {fileID: 1302891245176948397}
+  _fruitEntityPrefab: {fileID: 124661011601532461, guid: 7f43ad0a1dc9942deb52963a8ee6e6f4, type: 3}
+  deliveryPoint: {fileID: 4787423338733532964}
+  fruitEntities: []
 --- !u!1 &5823776604973698877
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private ConstructionModuleEntity _constructionModuleEntity;
+    public ConstructionModuleEntity _constructionModuleEntity;
+    public DeliveryModuleEntity _deliveryModuleEntity;
+    public MarketModuleEntity _marketModuleEntity;
 
     public Timer timer;
 
@@ -25,15 +27,22 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Initialize();
-
         timer = new Timer();
+        Initialize();
     }
 
     private void Initialize()
     {
         var constructionModule = new ConstructionModule(_constructionModuleEntity);
         constructionModule.Initialize();
+
+        var deliveryModule = new DeliveryModule(_deliveryModuleEntity);
+        deliveryModule.Initialize();
+
+        var marketModule = new MarketModule(_marketModuleEntity);
+        marketModule.Initialize();
+
+        constructionModule.deliveryModule = deliveryModule;
     }
 
     private void Update()

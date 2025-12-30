@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ConstructionModule : Module<ConstructionModuleEntity>, Core.IObserver<BoxController>
 {
+    public DeliveryModule deliveryModule;
     private List<BoxController> _boxControllers;
     private List<PlantController> _plantControllers;
 
@@ -39,6 +40,7 @@ public class ConstructionModule : Module<ConstructionModuleEntity>, Core.IObserv
     {
         if (observable.BoxModel.plantable)
         {
+            observable.RemoveObserver(this);
             observable.BoxEntity.gameObject.SetActive(false);
 
             var plantEntity = _view.GetPlantEntity(
@@ -51,6 +53,8 @@ public class ConstructionModule : Module<ConstructionModuleEntity>, Core.IObserv
 
             var plantController = new PlantController(plantEntity, plantConfig);
             _plantControllers.Add(plantController);
+
+            plantController.AddObserver(deliveryModule);
         }
     }
 }

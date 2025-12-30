@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Game.Core;
 using UnityEngine;
 
-public abstract class PlantState : State
+public abstract class CustomerState : State
 {
-    public PlantState(PlantController plantController)
+    public CustomerState(CustomerController customerController)
     {
         
     }
